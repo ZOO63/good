@@ -1,21 +1,11 @@
-#   5.Graph: Minimum Spanning Tree:
-#  Represent a graph of your college campus using adjacency list /adjacency matrix. Nodes should represent 
-# the various departments/institutes and links should represent the distance between them.
-#  Find minimum spanning tree
-#  a) Using Prim’s algorithm
-
  import sys
-
-V = 5  # number of departments
-
-# College departments graph (Adjacency Matrix)
-# 0 means no direct connection
+V = 5 
 graph = [
- [0, 2, 0, 6, 0],  # CSE
- [2, 0, 3, 8, 5],  # IT
- [0, 3, 0, 0, 7],  # Mech
- [6, 8, 0, 0, 9],  # Civil
- [0, 5, 7, 9, 0]   # EXTC
+ [0, 2, 0, 6, 0], 
+ [2, 0, 3, 8, 5], 
+ [0, 3, 0, 0, 7],   
+ [6, 8, 0, 0, 9],   
+ [0, 5, 7, 9, 0]   
 ]
 
 def minKey(key, mstSet):
@@ -28,12 +18,12 @@ def minKey(key, mstSet):
     return min_index
 
 def primMST(graph):
-    key = [sys.maxsize] * V   # Distance values
-    parent = [None] * V       # Store MST
+    key = [sys.maxsize] * V  
+    parent = [None] * V       
     key[0] = 0
     mstSet = [False] * V
 
-    parent[0] = -1  # First node is root
+    parent[0] = -1  
 
     for _ in range(V - 1):
         u = minKey(key, mstSet)
@@ -51,6 +41,7 @@ def primMST(graph):
         total += graph[i][parent[i]]
     print("Total Minimum Distance:", total)
 
-# ---- Main ----
+
 print("Minimum Spanning Tree using Prim's Algorithm:\n")
 primMST(graph)
+
